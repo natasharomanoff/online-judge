@@ -1,0 +1,16 @@
+%p#notice= notice
+
+.page-header
+  %h1= @problem.title
+%p
+  = raw RDiscount.new(@problem.content, :smart, :filter_html).to_html
+%p
+  %b Sample input:
+  %pre= @problem.sample_input
+%p
+  %b Sample output:
+  %pre= @problem.sample_output
+
+= link_to 'Edit', edit_problem_path(@problem)
+\|
+= link_to 'Back', problems_path

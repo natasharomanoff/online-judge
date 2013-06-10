@@ -1,0 +1,34 @@
+!!!    
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title OnlineJudge
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container-fluid
+          %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{:href => root_path} OnLine Judge
+          .nav-collapse.collapse
+            %p.navbar-text.pull-right
+              Logged in as
+              %a.navbar-link{:href => "#"} Username
+            %ul.nav
+              %li.active
+                %a{:href => root_path} Home
+              %li
+                %a{:href => problems_path} Problems
+              %li
+                %a{:href => "#statistics"} Statistics
+    .container-fluid
+      .row-fluid
+        = yield
+      %hr
+      %footer
+        %p © Company 2013

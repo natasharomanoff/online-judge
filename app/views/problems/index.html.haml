@@ -1,0 +1,23 @@
+.page-header
+  %h1 Problems
+
+%table.table.table-condensed
+  %tr
+    %th Title
+    %th
+    %th
+    %th
+
+  - @problems.each do |problem|
+    %tr
+      %td= link_to problem.title, problem
+      %td.span1
+        = link_to edit_problem_path(problem) do
+          %i.icon-edit
+      %td.span1
+        = link_to(problem, :method => :delete, :data => { :confirm => 'Are you sure?' }) do 
+          %i.icon-trash
+
+%br
+
+= link_to 'New Problem', new_problem_path, :class => 'btn btn-primary'
