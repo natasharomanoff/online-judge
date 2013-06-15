@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require "bootstrap"
 //= require_self
+
+function selectNavbarItem(item) {
+	$('.nav').find('li.active').removeClass('active');
+    $('.nav').find('li#' + item).attr('class', 'active');
+} 

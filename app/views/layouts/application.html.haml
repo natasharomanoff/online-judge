@@ -30,13 +30,13 @@
                   %li
                     = link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'navbar-link')
             %ul.nav
-              %li.active
+              %li#home.active
                 %a{:href => root_path} Home
-              %li
+              %li#problems
                 %a{:href => problems_path} Problems
-              %li
+              %li#search
                 %a{:href => "#search"} Search
-              %li
+              %li#statistics
                 %a{:href => statistics_index_path} Statistics
     .container-fluid
       .row-fluid
