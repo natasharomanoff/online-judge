@@ -2,6 +2,24 @@
 
 .page-header
   %h1= @problem.title
+
+.btn-group.pull-right
+  = link_to problems_path, :class => 'btn' do
+    %i.icon-chevron-left
+    Back
+  - if current_user.admin?
+    = link_to edit_problem_path(@problem), :class => 'btn' do
+      %i.icon-edit
+      Edit
+  - else
+    = link_to new_problem_submission_path(@problem), :class => 'btn' do
+      %i.icon-flag
+      Submit
+    = link_to problem_statistics_path(@problem), :class => 'btn' do
+      %i.icon-signal
+      Statistics
+
+
 %p
   = raw RDiscount.new(@problem.content, :smart, :filter_html).to_html
 %p
@@ -11,6 +29,4 @@
   %b Sample output:
   %pre= @problem.sample_output
 
-= link_to 'Edit', edit_problem_path(@problem)
-\|
-= link_to 'Back', problems_path
+

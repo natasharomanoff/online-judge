@@ -1,5 +1,12 @@
 OnlineJudge::Application.routes.draw do
-  resources :problems
+  get "statistics/index"
+
+  devise_for :users
+
+  resources :problems do
+    resources :submissions
+    get "statistics"
+  end
 
 
   get "home/index"

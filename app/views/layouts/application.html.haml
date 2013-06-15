@@ -16,16 +16,28 @@
             %span.icon-bar
           %a.brand{:href => root_path} OnLine Judge
           .nav-collapse.collapse
-            %p.navbar-text.pull-right
-              Logged in as
-              %a.navbar-link{:href => "#"} Username
+            - if user_signed_in?
+              .btn-group.pull-right
+                %button.btn.btn-info.dropdown-toggle{"data-toggle" => "dropdown"}
+                  %i.icon-user.icon-white
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a.navbar-link{:href => "#"} View Profile
+                  %li
+                    %a.navbar-link{:href => "#"} Manage Account
+                  %li.divider
+                  %li
+                    = link_to('Logout', destroy_user_session_path, :method => :delete, :class => 'navbar-link')
             %ul.nav
               %li.active
                 %a{:href => root_path} Home
               %li
                 %a{:href => problems_path} Problems
               %li
-                %a{:href => "#statistics"} Statistics
+                %a{:href => "#search"} Search
+              %li
+                %a{:href => statistics_index_path} Statistics
     .container-fluid
       .row-fluid
         = yield

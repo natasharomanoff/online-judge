@@ -1,0 +1,16 @@
+.page-header
+  %h1= @problem.title
+= form_for( [@problem, @submission], :html => { :class => 'form-horizontal'} )do |f|
+  .control-group
+    = f.label :language, :class => 'control-label'
+    .controls
+      = f.collection_select :language_id, Language.all, :id, :title, {}, {:class => 'span8'}
+  .control-group
+    = f.label :code, :class => 'control-label'
+    .controls
+      = f.text_area :code, :rows => 10, :class => 'span8'
+  = f.hidden_field :user_id, :value => current_user.id
+  .control-group
+    .controls
+      = f.submit 'Submit', :class => 'btn btn-primary'
+      %a.btn{ :href => problem_path(@problem)} Cancel

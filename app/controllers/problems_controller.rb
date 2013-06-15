@@ -1,4 +1,5 @@
 class ProblemsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /problems
   # GET /problems.json
   def index
@@ -79,5 +80,9 @@ class ProblemsController < ApplicationController
       format.html { redirect_to problems_url }
       format.json { head :no_content }
     end
+  end
+
+  def statistics
+    @problem = Problem.find(params[:problem_id])
   end
 end

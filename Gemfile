@@ -25,6 +25,10 @@ gem 'mongoid'
 gem 'devise'
 gem 'rdiscount'
 gem 'kaminari'
+gem 'sidekiq'
+gem 'nokogiri'
+gem 'mongoid_taggable'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
