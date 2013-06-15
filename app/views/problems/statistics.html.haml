@@ -1,4 +1,18 @@
+%ul.breadcrumb
+  %li
+    %a{:href => problems_path } Problems
+    %span.divider /
+  %li
+    %a{:href => problem_path(@problem) }= @problem.title
+    %span.divider /
+  %li.active
+    Statistics 
+
 .page-header
   %h1
     = @problem.title
     %small Statistics
+
+.btn-group.pull-right
+  = link_to problem_submissions_path(@problem), :class => 'btn btn-info' do
+    All Submissions

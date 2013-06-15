@@ -1,12 +1,16 @@
-%p#notice= notice
+%ul.breadcrumb
+  %li
+    %a{:href => problems_path } Problems
+    %span.divider /
+  %li.active= @problem.title
+
 
 .page-header
   %h1= @problem.title
 
+%p#notice= notice
+
 .btn-group.pull-right
-  = link_to problems_path, :class => 'btn' do
-    %i.icon-chevron-left
-    Back
   - if current_user.admin?
     = link_to edit_problem_path(@problem), :class => 'btn' do
       %i.icon-edit

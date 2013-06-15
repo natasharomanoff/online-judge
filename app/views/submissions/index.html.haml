@@ -1,3 +1,13 @@
+%ul.breadcrumb
+  %li
+    %a{:href => problems_path } Problems
+    %span.divider /
+  %li
+    %a{:href => problem_path(@problem) }= @problem.title
+    %span.divider /
+  %li.active
+    Submissions
+
 .page-header
   %h1
     = @problem.title
